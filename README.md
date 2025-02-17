@@ -33,8 +33,10 @@ This document provides the API reference for the QiServices Mini Apps JavaScript
 Shows a popup to the user to select the account to be shared with the Mini App.
 
 **Signature:**
+```
 typescript
 getAccount: (callback: (result: AccountResult) => void) => void
+```
 
 
 **Input Params:** None

@@ -33,8 +33,7 @@ This document provides the API reference for the QiServices Mini Apps JavaScript
 Shows a popup to the user to select the account to be shared with the Mini App.
 
 **Signature:**
-```
-typescript
+```typescript
 getAccount: (callback: (result: AccountResult) => void) => void
 ```
 
@@ -42,11 +41,12 @@ getAccount: (callback: (result: AccountResult) => void) => void
 **Input Params:** None
 
 **Callback Type:**
-typescript
+```typescript
 {
   status: "'SUCCESSFUL' | 'CANCELLED'",
   account: SignedField<string>
 }
+```
 
 
 ---
@@ -55,25 +55,29 @@ typescript
 Shows a popup to the user to carry out a purchase operation. Check the purchase flow in purchase-flow.md for more details.
 
 **Signature:**
-typescript
+```typescript
 purchase: (options: PurchaseOptions, callback: (result: PurchaseResult) => void) => void
+```
 
 
 **Input:**
-typescript
+```typescript
+
 {
   price: number;
   merchantTransactionID: string;
 }
+```
 
 
 **Callback Type:**
-typescript
+```typescript
 {
   status: "'SUCCESSFUL' | 'CANCELLED' | 'FAILED'",
   transactionID: string;
   RRN?: string;
 }
+```
 
 
 ---
@@ -82,24 +86,27 @@ typescript
 Initiates the BNPL (Aqsati) flow by sending an OTP to the user after selecting an account from QiService or SuperQi.
 
 **Signature:**
-typescript
+```typescript
 initiateOTP: (options: AqsatiInitiateOptions, callback: (result: AqsatiInitiateResult) => void) => void
+```
 
 
 **Input:**
-typescript
+```typescript
 {
   accountID: string; // Selected account ID from qi.getAccount()
   amount: number; // Transaction amount
 }
+```
 
 
 **Callback Type:**
-typescript
+```typescript
 {
   status: "'OTP_SENT' | 'CANCELLED' | 'FAILED'",
   transactionID: string; // Unique transaction ID for the BNPL flow
 }
+```
 
 
 ---
@@ -108,25 +115,28 @@ typescript
 Confirms the BNPL (Aqsati) transaction after the user enters the OTP.
 
 **Signature:**
-typescript
+```typescript
 confirmAmount: (options: AqsatiConfirmOptions, callback: (result: AqsatiConfirmResult) => void) => void
+```
 
 
 **Input:**
-typescript
+```typescript
 {
   transactionID: string; // Transaction ID from qi.aqsati.initiateOTP()
   otp: string; // OTP entered by the user
 }
+```
 
 
 **Callback Type:**
-typescript
+```typescript
 {
   status: "'SUCCESSFUL' | 'CANCELLED' | 'FAILED'",
   transactionID: string; // Confirmed transaction ID
   RRN?: string; // Retrieval Reference Number (if applicable)
 }
+```
 
 
 ---
@@ -137,18 +147,19 @@ typescript
 Opens the camera to scan a QR code and returns the raw value of the QR code.
 
 **Signature:**
-typescript
+```typescript
 readQr: (callback: (result: QRResult) => void) => void
-
+```
 
 **Input Params:** None
 
 **Callback Type:**
-typescript
+```typescript
 {
   status: "'SUCCESSFUL' | 'CANCELLED'",
   value: string;
 }
+```
 
 
 ---
@@ -157,20 +168,21 @@ typescript
 Returns the user's current location (if permission is granted and the device has location services enabled).
 
 **Signature:**
-typescript
+```typescript
 getLocation: (callback: (result: LocationResult) => void) => void
-
+```
 
 **Input Params:** None
 
 **Callback Type:**
-typescript
+```typescript
 {
   status: "'SUCCESSFUL' | 'CANCELLED' | 'REJECTED'",
   longitude?: number;
   latitude?: number;
   accuracy?: number;
 }
+```
 
 
 ---
@@ -179,24 +191,25 @@ typescript
 Opens a URL in the browser or internally inside the QiServices App.
 
 **Signature:**
-typescript
+```typescript
 openURL: (options: OpenURLOptions, callback: (result: OpenURLResult) => void) => void
-
+```
 
 **Input Params:**
-typescript
+```typescript
 {
   url: string;
   type: "EXTERNAL" | "INTERNAL";
 }
-
+```
 
 **Callback Type:**
-typescript
+```typescript
 {
   url: string;
   status: "APP_CLOSE" | "USER_CLOSE" | "IMMEDIATE_CLOSE";
 }
+```
 
 
 ---
@@ -207,8 +220,9 @@ typescript
 Returns true if the web page is running inside the QiServices Mini App Platform.
 
 **Signature:**
-typescript
+```typescript
 isMiniApp: () => boolean
+```
 
 
 **Input Params:** None
@@ -221,8 +235,9 @@ isMiniApp: () => boolean
 Closes the Mini App.
 
 **Signature:**
-typescript
+```typescript
 close: () => void
+```
 
 
 **Input Params:** None

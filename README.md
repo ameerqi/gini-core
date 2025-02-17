@@ -2,7 +2,7 @@
 
 # API Reference
 
-This document provides the API reference for the QiServices Mini Apps JavaScript SDK. It details available methods, their signatures, parameters, and callback types for interacting with QiServices platform features, including payments, account information, utility functions, and the new BNPL (Aqsati) functionality.
+This document provides the API reference for the Gini core that includes QiServices Mini Apps JavaScript SDK and Aqsati integration. It details available methods, their signatures, parameters, and callback types for interacting with QiServices platform features, including payments, account information, utility functions, and the new BNPL (Aqsati) functionality.
 
 ---
 

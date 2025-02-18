@@ -243,3 +243,10 @@ close: () => void
 **Input Params:** None
 
 **Callback Type:** None
+
+
+<details>
+    <summary>Click to view the Auth Flow Diagram</summary>
+
+![Auth Flow](auth sequence.png)
+</details>

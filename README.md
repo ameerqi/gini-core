@@ -248,5 +248,5 @@ close: () => void
 <details>
     <summary>Click to view the Auth Flow Diagram</summary>
 
-![Auth Flow](auth sequence.png)
+![Auth Flow](auth-sequence.png)
 </details>

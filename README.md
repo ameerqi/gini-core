@@ -27,6 +27,14 @@ This document provides the API reference for the Gini core that includes QiServi
 
 ## API Reference
 
+### Authentication Flow
+
+<details>
+    <summary>Click to view the Auth Flow Diagram</summary>
+
+![Auth Flow](auth-sequence.png)
+</details>
+
 ### Financial
 
 #### qi.getAccount()
@@ -248,9 +256,3 @@ close: () => void
 **Input Params:** None
 
 **Callback Type:** None
-
-<details>
-    <summary>Click to view the Auth Flow Diagram</summary>
-
-![Auth Flow](auth-sequence.png)
-</details>

@@ -48,6 +48,11 @@ getAccount: (callback: (result: AccountResult) => void) => void
 }
 ```
 
+<details>
+    <summary>Click to view the Get Account Flow Diagram</summary>
+
+![Get Accounts Flow](accounts-sequence.png)
+</details>
 
 ---
 
@@ -244,16 +249,8 @@ close: () => void
 
 **Callback Type:** None
 
-
 <details>
     <summary>Click to view the Auth Flow Diagram</summary>
 
 ![Auth Flow](auth-sequence.png)
 </details>
-
-<details>
-    <summary>Click to view the Get Account Flow Diagram</summary>
-
-![Get Accounts Flow](accounts-sequence.png)
-</details>
-

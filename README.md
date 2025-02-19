@@ -53,8 +53,6 @@ close: () => void
 
 ---
 
----
-
 ## API Reference
 
 ### Authentication Flow
@@ -89,7 +87,7 @@ getAccount: (callback: (result: AccountResult) => void) => void
 <details>
     <summary>Click to view the Get Account Flow Diagram</summary>
 
-![Get Accounts Flow](accounts-sequence.png)
+![Get Accounts Flow](aqsati-sequence.png)
 </details>
 
 ---

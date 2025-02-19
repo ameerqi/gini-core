@@ -31,6 +31,7 @@ This document provides the API reference for the Gini core that includes QiServi
 
 <details>
     <summary>Click to view the Auth Flow Diagram</summary>
+   
 ![Auth Flow](auth-sequence.png)
 </details>
 

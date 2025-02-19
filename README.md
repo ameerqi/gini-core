@@ -1,4 +1,4 @@
-# gini-core
+# Gini Core
 
 # API Reference
 

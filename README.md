@@ -25,6 +25,34 @@ This document provides the API reference for the Gini core that includes QiServi
 
 
 
+
+### Utility
+
+#### qi.isMiniApp()
+Returns true if the web page is running inside the QiServices Mini App Platform.
+
+**Signature:**
+```typescript
+isMiniApp: () => boolean
+```
+
+
+**Input Params:** None
+
+**Callback Type:** None
+
+---
+
+#### qi.close()
+Closes the Mini App.
+
+**Signature:**
+```typescript
+close: () => void
+```
+
+---
+
 ---
 
 ## API Reference
@@ -156,32 +184,6 @@ confirmAmount: (options: AqsatiConfirmOptions, callback: (result: AqsatiConfirmR
 
 ---
 
-### Utility
-
-#### qi.isMiniApp()
-Returns true if the web page is running inside the QiServices Mini App Platform.
-
-**Signature:**
-```typescript
-isMiniApp: () => boolean
-```
-
-
-**Input Params:** None
-
-**Callback Type:** None
-
----
-
-#### qi.close()
-Closes the Mini App.
-
-**Signature:**
-```typescript
-close: () => void
-```
-
----
 
 ### Functionality
 

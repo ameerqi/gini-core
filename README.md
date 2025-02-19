@@ -8,20 +8,22 @@ This document provides the API reference for the Gini core that includes QiServi
 
 ## Table of Contents
 
-1. **Financial**
+1. **Utility**
+   - qi.close() - Closes the Mini App.
+   - qi.isMiniApp() - Returns true if the web page is running inside the QiServices Mini App Platform.
+
+2. **Financial**
    - qi.purchase() - Shows a popup to the user to carry out a purchase operation.
    - qi.getAccount() - Shows a popup to the user to select the account to be shared with the Mini App.
    - qi.aqsati.initiateOTP() - Initiates the BNPL (Aqsati) flow by sending an OTP to the user after account selection.
    - qi.aqsati.confirmAmount() - Confirms the BNPL (Aqsati) transaction after OTP verification.
 
-2. **Functionality**
+3. **Functionality**
    - qi.readQr() - Opens the camera to scan a QR code and returns the raw value of the QR code.
    - qi.openURL() - Opens a URL in the browser or internally inside the QiServices App.
    - qi.getLocation() - Returns the user's current location (if permission is granted and the device has location services enabled).
 
-3. **Utility**
-   - qi.close() - Closes the Mini App.
-   - qi.isMiniApp() - Returns true if the web page is running inside the QiServices Mini App Platform.
+
 
 ---
 
@@ -154,6 +156,33 @@ confirmAmount: (options: AqsatiConfirmOptions, callback: (result: AqsatiConfirmR
 
 ---
 
+### Utility
+
+#### qi.isMiniApp()
+Returns true if the web page is running inside the QiServices Mini App Platform.
+
+**Signature:**
+```typescript
+isMiniApp: () => boolean
+```
+
+
+**Input Params:** None
+
+**Callback Type:** None
+
+---
+
+#### qi.close()
+Closes the Mini App.
+
+**Signature:**
+```typescript
+close: () => void
+```
+
+---
+
 ### Functionality
 
 #### qi.readQr()
@@ -222,34 +251,6 @@ openURL: (options: OpenURLOptions, callback: (result: OpenURLResult) => void) =>
   url: string;
   status: "APP_CLOSE" | "USER_CLOSE" | "IMMEDIATE_CLOSE";
 }
-```
-
-
----
-
-### Utility
-
-#### qi.isMiniApp()
-Returns true if the web page is running inside the QiServices Mini App Platform.
-
-**Signature:**
-```typescript
-isMiniApp: () => boolean
-```
-
-
-**Input Params:** None
-
-**Callback Type:** None
-
----
-
-#### qi.close()
-Closes the Mini App.
-
-**Signature:**
-```typescript
-close: () => void
 ```
 
 

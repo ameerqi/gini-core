@@ -13,14 +13,17 @@ This document provides the API reference for the Gini core that includes QiServi
    - qi.isMiniApp() - Returns true if the web page is running inside the QiServices Mini App Platform.
 
 2. **Financial**
+
    a. Qi Payment:
       - qi.purchase() - Shows a popup to the user to carry out a purchase operation.
       - qi.getAccount() - Shows a popup to the user to select the account to be shared with the Mini App.
       - Refund a payemnt.
 
    b. Aqsati (BNPL):
-      - qi.aqsati.initiateOTP() - Initiates the BNPL (Aqsati) flow by sending an OTP to the user after account selection.
-      - qi.aqsati.confirmAmount() - Confirms the BNPL (Aqsati) transaction after OTP verification.
+      - Initiates the BNPL (Aqsati) to the user after account selection.
+      - Send or Resend OTP to selected account.
+      - Confirms the BNPL (Aqsati) transaction after OTP verification.
+      - Update an installment status.
 
 4. **Functionality**
    - qi.readQr() - Opens the camera to scan a QR code and returns the raw value of the QR code.

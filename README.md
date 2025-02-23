@@ -65,14 +65,6 @@ close: () => void
 
 ## API Reference
 
-### Authentication Flow
-
-<details>
-    <summary>Click to view the Auth Flow Diagram</summary>
-   
-![Auth Flow](auth-sequence.png)
-</details>
-
 ### Financial
 
 ## Qi payment
@@ -347,7 +339,13 @@ openURL: (options: OpenURLOptions, callback: (result: OpenURLResult) => void) =>
 ```
 
 
-### Authentication
+### User Authentication Flow
+
+<details>
+    <summary>Click to view the Auth Flow Diagram</summary>
+   
+![Auth Flow](auth-sequence.png)
+</details>
 
 #### Retrieve Phone Number by token
 Retrieve the phone number associated with the provided authentication token.

@@ -93,12 +93,6 @@ close: () => void
    }
    ```
    
-   <details>
-       <summary>Click to view the Get Account Flow Diagram</summary>
-   
-   ![Get Accounts Flow](aqsati-sequence.png)
-   </details>
-   
    ---
    
    #### qi.purchase()
@@ -133,6 +127,12 @@ close: () => void
 ---
 
 ## Aqsati (BNPL)
+
+<details>
+       <summary>Click to view the Get Account Flow Diagram</summary>
+   
+   ![Get Accounts Flow](aqsati-sequence.png)
+   </details>
 
 #### /v1.0/ginipay/aqsati/create
 Initiates an Installment to the user after selecting an account from QiService.

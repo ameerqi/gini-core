@@ -128,8 +128,8 @@ close: () => void
 
 ## Aqsati (BNPL)
 
-<details>
-       <summary>Click to view the Get Account Flow Diagram</summary>
+   <details>
+       <summary>Click to view the BNPL Flow Diagram</summary>
    
    ![Get Accounts Flow](aqsati-sequence.png)
    </details>

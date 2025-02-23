@@ -22,6 +22,10 @@ This document provides the API reference for the Gini core that includes QiServi
    - qi.readQr() - Opens the camera to scan a QR code and returns the raw value of the QR code.
    - qi.openURL() - Opens a URL in the browser or internally inside the QiServices App.
    - qi.getLocation() - Returns the user's current location (if permission is granted and the device has location services enabled).
+  
+4. **Authentication**
+   - Get Phone Number from Token.
+   - Get Account Number from Token.
 
 
 
@@ -254,6 +258,52 @@ openURL: (options: OpenURLOptions, callback: (result: OpenURLResult) => void) =>
 ```
 
 
-**Input Params:** None
+### Authentication
 
-**Callback Type:** None
+#### Retrieve Phone Number by token
+Retrieve the phone number associated with the provided authentication token.
+
+**URL**
+
+/v1.0/giniidentity/qi-services/get-phone
+
+**Result**
+```typescript
+{
+"data":{"phone":"+96412332112"}
+}
+```
+
+**Input Params:** 
+```typescript
+{
+  "token": "<string>"
+}
+```
+
+
+---
+
+#### Account Number by token
+Opens the camera to scan a QR code and returns the raw value of the QR code.
+
+**URL**
+
+/v1.0/giniidentity/qi-services/get-account
+
+**Result**
+```typescript
+{
+"data":{"account":"123456789"}
+}
+```
+
+**Input Params:** 
+```typescript
+{
+  "token": "<string>"
+}
+```
+
+---
+

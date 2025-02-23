@@ -146,7 +146,7 @@ close: () => void
 
 ---
    
-   #### Refund
+   ### Refund
    **URL**
    
    /v1.0/ginipay/qi-services/refund

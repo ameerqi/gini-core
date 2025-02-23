@@ -72,7 +72,7 @@ close: () => void
 
 ### Financial
 
-### Qi payment
+## Qi payment
 
    #### qi.getAccount()
    Shows a popup to the user to select the account to be shared with the Mini App.
@@ -132,7 +132,7 @@ close: () => void
 
 ---
 
-### Aqsati (BNPL)
+## Aqsati (BNPL)
 
 #### /v1.0/ginipay/aqsati/create
 Initiates an Installment to the user after selecting an account from QiService.

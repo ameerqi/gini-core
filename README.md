@@ -24,9 +24,8 @@ This document provides the API reference for the Gini core that includes QiServi
    - qi.getLocation() - Returns the user's current location (if permission is granted and the device has location services enabled).
   
 4. **Authentication**
-   - Get Phone Number from Token.
-   - Get Account Number from Token.
-
+   - Retrieve Phone Number from Token.
+   - Retrieve Account Number from Token.
 
 
 
@@ -270,7 +269,7 @@ Retrieve the phone number associated with the provided authentication token.
 **Result**
 ```typescript
 {
-"data":{"phone":"+96412332112"}
+   "data":{"phone":"+96412332112"}
 }
 ```
 
@@ -285,7 +284,7 @@ Retrieve the phone number associated with the provided authentication token.
 ---
 
 #### Account Number by token
-Opens the camera to scan a QR code and returns the raw value of the QR code.
+Retrieve the Account number associated with the provided authentication token.
 
 **URL**
 
@@ -294,7 +293,7 @@ Opens the camera to scan a QR code and returns the raw value of the QR code.
 **Result**
 ```typescript
 {
-"data":{"account":"123456789"}
+   "data":{"account":"123456789"}
 }
 ```
 

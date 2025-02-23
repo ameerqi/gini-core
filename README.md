@@ -126,8 +126,53 @@ close: () => void
    }
    ```
 
+   After getting the callback send a request 
+   
+   **URL**
+    /v1.0/ginipay/qi-services/pay
+
+   
+   **Input**
+
+   ```javascript
+   {
+     "merchant_transaction_id": "<string>", // Some Unique Transaction ID that you already parsed to qi.purchase() function
+     "amount": "1000", // same amount you already parsed to qi.purchase() function (for checking)
+     "rrn": "12312312321", // qi.purchase() function will return it
+     "fee_id": "1", // // The transaction fee (predefined fees will be created to your account)
+     "extrenal_customer_id": "1" // an ID from your system to tracking the user if you need it
+   }
+   ```
 
 ---
+   
+   #### Refund
+   **URL**
+   
+   /v1.0/ginipay/qi-services/refund
+
+
+   **Input**
+
+   ```javascript
+      {
+        "transaction_uuid": "<string>"
+      }
+   
+   ```
+
+   **Output**
+   
+   ```javascript
+   {
+     "message": "<string>", 
+     "data": null, 
+   }
+   ```
+
+---
+
+
 
 ## Aqsati (BNPL)
 

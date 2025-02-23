@@ -13,17 +13,21 @@ This document provides the API reference for the Gini core that includes QiServi
    - qi.isMiniApp() - Returns true if the web page is running inside the QiServices Mini App Platform.
 
 2. **Financial**
-   - qi.purchase() - Shows a popup to the user to carry out a purchase operation.
-   - qi.getAccount() - Shows a popup to the user to select the account to be shared with the Mini App.
-   - qi.aqsati.initiateOTP() - Initiates the BNPL (Aqsati) flow by sending an OTP to the user after account selection.
-   - qi.aqsati.confirmAmount() - Confirms the BNPL (Aqsati) transaction after OTP verification.
+   a. Qi Payment:
+      - qi.purchase() - Shows a popup to the user to carry out a purchase operation.
+      - qi.getAccount() - Shows a popup to the user to select the account to be shared with the Mini App.
+      - Refund a payemnt.
 
-3. **Functionality**
+   b. Aqsati (BNPL):
+      - qi.aqsati.initiateOTP() - Initiates the BNPL (Aqsati) flow by sending an OTP to the user after account selection.
+      - qi.aqsati.confirmAmount() - Confirms the BNPL (Aqsati) transaction after OTP verification.
+
+4. **Functionality**
    - qi.readQr() - Opens the camera to scan a QR code and returns the raw value of the QR code.
    - qi.openURL() - Opens a URL in the browser or internally inside the QiServices App.
    - qi.getLocation() - Returns the user's current location (if permission is granted and the device has location services enabled).
   
-4. **Authentication**
+5. **Authentication**
    - Retrieve Phone Number from Token.
    - Retrieve Account Number from Token.
 
@@ -68,117 +72,155 @@ close: () => void
 
 ### Financial
 
-#### qi.getAccount()
-Shows a popup to the user to select the account to be shared with the Mini App.
+### Qi payment
 
-**Signature:**
-```typescript
-getAccount: (callback: (result: AccountResult) => void) => void
-```
-
-
-**Input Params:** None
-
-**Callback Type:**
-```typescript
-{
-  status: "'SUCCESSFUL' | 'CANCELLED'",
-  account: SignedField<string>
-}
-```
-
-<details>
-    <summary>Click to view the Get Account Flow Diagram</summary>
-
-![Get Accounts Flow](aqsati-sequence.png)
-</details>
-
----
-
-#### qi.purchase()
-Shows a popup to the user to carry out a purchase operation. Check the purchase flow in purchase-flow.md for more details.
-
-**Signature:**
-```typescript
-purchase: (options: PurchaseOptions, callback: (result: PurchaseResult) => void) => void
-```
-
-
-**Input:**
-```typescript
-
-{
-  price: number;
-  merchantTransactionID: string;
-}
-```
-
-
-**Callback Type:**
-```typescript
-{
-  status: "'SUCCESSFUL' | 'CANCELLED' | 'FAILED'",
-  transactionID: string;
-  RRN?: string;
-}
-```
-
-
----
-
-#### qi.aqsati.initiateOTP()
-Initiates the BNPL (Aqsati) flow by sending an OTP to the user after selecting an account from QiService or SuperQi.
-
-**Signature:**
-```typescript
-initiateOTP: (options: AqsatiInitiateOptions, callback: (result: AqsatiInitiateResult) => void) => void
-```
-
-
-**Input:**
-```typescript
-{
-  accountID: string; // Selected account ID from qi.getAccount()
-  amount: number; // Transaction amount
-}
-```
-
-
-**Callback Type:**
-```typescript
-{
-  status: "'OTP_SENT' | 'CANCELLED' | 'FAILED'",
-  transactionID: string; // Unique transaction ID for the BNPL flow
-}
-```
+   #### qi.getAccount()
+   Shows a popup to the user to select the account to be shared with the Mini App.
+   
+   **Signature:**
+   ```typescript
+   getAccount: (callback: (result: AccountResult) => void) => void
+   ```
+   
+   
+   **Input Params:** None
+   
+   **Callback Type:**
+   ```typescript
+   {
+     status: "'SUCCESSFUL' | 'CANCELLED'",
+     account: SignedField<string>
+   }
+   ```
+   
+   <details>
+       <summary>Click to view the Get Account Flow Diagram</summary>
+   
+   ![Get Accounts Flow](aqsati-sequence.png)
+   </details>
+   
+   ---
+   
+   #### qi.purchase()
+   Shows a popup to the user to carry out a purchase operation. Check the purchase flow in purchase-flow.md for more details.
+   
+   **Signature:**
+   ```typescript
+   purchase: (options: PurchaseOptions, callback: (result: PurchaseResult) => void) => void
+   ```
+   
+   
+   **Input:**
+   ```typescript
+   
+   {
+     price: number;
+     merchantTransactionID: string;
+   }
+   ```
+   
+   
+   **Callback Type:**
+   ```typescript
+   {
+     status: "'SUCCESSFUL' | 'CANCELLED' | 'FAILED'",
+     transactionID: string;
+     RRN?: string;
+   }
+   ```
 
 
 ---
 
-#### qi.aqsati.confirmAmount()
+### Aqsati (BNPL)
+
+#### /v1.0/ginipay/aqsati/create
+Initiates an Installment to the user after selecting an account from QiService.
+
+**Input Params:** 
+```typescript
+{
+  "account_number": "6330153657143355", // this is account number your can use it for testing
+  "external_customer_id": "1" // an ID from your system to tracking the user if you need it
+}
+```
+
+**Result**
+```typescript
+{
+   "message": "Success"
+   "data":null
+}
+```
+
+---
+
+#### /v1.0/ginipay/aqsati/sendotp
+Send or Resend OTP to the user after selecting an account from QiService.
+
+**Input Params:** 
+```typescript
+{
+  "transaction_uuid": "e2ce1893-2791-43de-a54c-ed7b434b6da4", // from the step [1]
+  "amount": "100000", // the amount of the transaction
+  "count_of_month": "10", // Number of months for which the amount was paid in installments 
+  "type_of_installment": "1", // The type of installment if 1 it's pending if 2 it's active
+  "fee_id": "1" // The transaction fee (predefined fees will be created to your account)
+}
+```
+
+**Result**
+```typescript
+{
+   "message": "Success"
+   "data":null
+}
+```
+
+---
+
+
+#### /v1.0/ginipay/aqsati/confirm
 Confirms the BNPL (Aqsati) transaction after the user enters the OTP.
 
-**Signature:**
-```typescript
-confirmAmount: (options: AqsatiConfirmOptions, callback: (result: AqsatiConfirmResult) => void) => void
-```
-
-
 **Input:**
 ```typescript
 {
-  transactionID: string; // Transaction ID from qi.aqsati.initiateOTP()
-  otp: string; // OTP entered by the user
+  "transaction_uuid": "e2ce1893-2791-43de-a54c-ed7b434b6da4", // from step [1]
+  "otp": "22331144", // this OTP 22331144 to testing use
+  "note": "any notes you need"
 }
 ```
 
 
-**Callback Type:**
+**Result**
 ```typescript
 {
-  status: "'SUCCESSFUL' | 'CANCELLED' | 'FAILED'",
-  transactionID: string; // Confirmed transaction ID
-  RRN?: string; // Retrieval Reference Number (if applicable)
+   "message": "Success"
+   "data":null
+}
+```
+
+
+---
+
+#### /v1.0/ginipay/aqsati/update
+Update the Status of an Installment transaction.
+
+**Input:**
+```typescript
+{
+  "status": "1", //  1 to confirmed it and 4 to archived it (close)
+  "transaction_uuid": "e2ce1893-2791-43de-a54c-ed7b434b6da4"
+}
+```
+
+
+**Result**
+```typescript
+{
+   "message": "Success"
+   "data":null
 }
 ```
 

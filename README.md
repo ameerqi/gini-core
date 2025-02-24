@@ -160,9 +160,6 @@ close: () => void
    }
    ```
 
----
-
-
 
 ## Aqsati (BNPL)
 
@@ -261,9 +258,6 @@ Update the Status of an Installment transaction.
    "data":null
 }
 ```
-
-
----
 
 
 ## Functionality

@@ -389,6 +389,3 @@ Retrieve the Account number associated with the provided authentication token.
   "token": "<string>"
 }
 ```
-
----
-

@@ -63,11 +63,9 @@ close: () => void
 
 ---
 
-## API Reference
+## Financial
 
-### Financial
-
-## Qi payment
+### Qi payment
 
    #### qi.getAccount()
    Shows a popup to the user to select the account to be shared with the Mini App.
@@ -174,7 +172,7 @@ close: () => void
    ![Get Accounts Flow](aqsati-sequence.png)
    </details>
 
-#### /v1.0/ginipay/aqsati/create
+### /v1.0/ginipay/aqsati/create
 Initiates an Installment to the user after selecting an account from QiService.
 
 **Input Params:** 
@@ -195,7 +193,7 @@ Initiates an Installment to the user after selecting an account from QiService.
 
 ---
 
-#### /v1.0/ginipay/aqsati/sendotp
+### /v1.0/ginipay/aqsati/sendotp
 Send or Resend OTP to the user after selecting an account from QiService.
 
 **Input Params:** 
@@ -220,7 +218,7 @@ Send or Resend OTP to the user after selecting an account from QiService.
 ---
 
 
-#### /v1.0/ginipay/aqsati/confirm
+### /v1.0/ginipay/aqsati/confirm
 Confirms the BNPL (Aqsati) transaction after the user enters the OTP.
 
 **Input:**
@@ -244,7 +242,7 @@ Confirms the BNPL (Aqsati) transaction after the user enters the OTP.
 
 ---
 
-#### /v1.0/ginipay/aqsati/update
+### /v1.0/ginipay/aqsati/update
 Update the Status of an Installment transaction.
 
 **Input:**
@@ -268,9 +266,9 @@ Update the Status of an Installment transaction.
 ---
 
 
-### Functionality
+## Functionality
 
-#### qi.readQr()
+### qi.readQr()
 Opens the camera to scan a QR code and returns the raw value of the QR code.
 
 **Signature:**
@@ -291,7 +289,7 @@ readQr: (callback: (result: QRResult) => void) => void
 
 ---
 
-#### qi.getLocation()
+### qi.getLocation()
 Returns the user's current location (if permission is granted and the device has location services enabled).
 
 **Signature:**
@@ -314,7 +312,7 @@ getLocation: (callback: (result: LocationResult) => void) => void
 
 ---
 
-#### qi.openURL()
+### qi.openURL()
 Opens a URL in the browser or internally inside the QiServices App.
 
 **Signature:**
@@ -339,7 +337,7 @@ openURL: (options: OpenURLOptions, callback: (result: OpenURLResult) => void) =>
 ```
 
 
-### User Authentication Flow
+## User Authentication Flow
 
 <details>
     <summary>Click to view the Auth Flow Diagram</summary>
@@ -347,7 +345,7 @@ openURL: (options: OpenURLOptions, callback: (result: OpenURLResult) => void) =>
 ![Auth Flow](auth-sequence.png)
 </details>
 
-#### Retrieve Phone Number by token
+### Retrieve Phone Number by token
 Retrieve the phone number associated with the provided authentication token.
 
 **URL**
@@ -371,7 +369,7 @@ Retrieve the phone number associated with the provided authentication token.
 
 ---
 
-#### Account Number by token
+### Account Number by token
 Retrieve the Account number associated with the provided authentication token.
 
 **URL**

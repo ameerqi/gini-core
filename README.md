@@ -89,7 +89,7 @@ close: () => void
    ---
    
    #### qi.purchase()
-   Shows a popup to the user to carry out a purchase operation. Check the purchase flow in purchase-flow.md for more details.
+   Shows a popup to the user to carry out a purchase operation.
    
    **Signature:**
    ```typescript
